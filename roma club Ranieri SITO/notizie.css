@@ -1,0 +1,371 @@
+/* =============================== */
+/*                                 */
+/* =============================== */
+/* =============================== */
+/*                                 */
+/* =============================== */
+/* =============================== */
+/*          CSS NOTIZIE            */
+/* =============================== */
+
+#body-notizie {
+  background-image: url('fotoNotizie.svg');       /* Imposta l'immagine di sfondo */
+  background-size: cover;                         /* Fa in modo che l'immagine copra tutto */
+  background-position: center;                    /* Centra l'immagine nello sfondo */
+  background-repeat: no-repeat;                   /* Impedisce la ripetizione dell'immagine */
+  min-height: 100vh;                              /* Altezza minima dell'intera finestra */
+  position: relative;                             /* Necessario per il posizionamento dell'overlay */
+  overflow: hidden;                               /* Nasconde qualsiasi contenuto che esce dal body */
+}
+
+#body-notizie::before {
+  content: "";                                    /* Crea un contenuto vuoto per l’overlay */
+  position: absolute;                             /* Posiziona l’overlay assolutamente */
+  top: 0; left: 0;                                /* Allinea l’overlay in alto a sinistra */
+  width: 100%; height: 100%;                      /* Fa coprire tutto lo sfondo al layer */
+  background-color: rgba(0, 0, 0, 0.3);           /* Colore nero con trasparenza 40% */
+  z-index: 1;                                     /* Lo posiziona sotto i contenuti della pagina */
+}
+
+#body-notizie > * {
+  position: relative;                             /* Rende i contenuti sovrapposti all’overlay */
+  z-index: 2;                                     /* Li mette sopra l’overlay scuro */
+}
+
+
+/* Stile per il testo <h2> nel preloader */
+.preloader-text {
+    color: #fff;                  /* Colore del testo bianco per risaltare sullo sfondo nero */
+    font-family: 'Playfair Display', serif; /* Font elegante, lo stesso del resto del sito */
+    font-size: 2.5rem;            /* Dimensione del testo abbastanza grande da essere visibile */
+    margin-left: 20px;            /* Spazio a sinistra per distanziare dal logo */
+    font-weight: 700;             /* Testo in grassetto per maggiore enfasi */
+    text-transform: uppercase;    /* Testo tutto maiuscolo per uniformità e impatto */
+    letter-spacing: 2px;          /* Spaziatura tra le lettere per migliorare la leggibilità */
+    animation: pulseText 1.5s ease-in-out infinite alternate; /* Animazione pulsante per dare vita al testo */
+}
+
+/* Definizione animazione "pulseText" */
+@keyframes pulseText {
+    from {
+        opacity: 0.6;              /* Testo leggermente trasparente all'inizio */
+        transform: scale(1);       /* Scala normale senza ingrandimenti */
+    }
+    to {
+        opacity: 1;                /* Testo completamente opaco alla fine */
+        transform: scale(1.05);    /* Leggero ingrandimento per effetto "battito" */
+    }
+}
+
+
+
+
+/* =============================== */
+/* ==============PRELOADER NOTIZIE================= */
+
+#preloader-notizie {
+    position: fixed;               /* Si fissa sopra tutta la pagina */
+    top: 0;
+    left: 0;
+    width: 100vw;                  /* Larghezza 100% della finestra */
+    height: 100vh;                 /* Altezza 100% della finestra */
+    background-color: #000;        /* Sfondo nero (modificabile) */
+    display: flex;                 /* Per centrare il contenuto */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;                 /* Si posiziona sopra tutto */
+    transition: opacity 0.5s ease; /* Per l'effetto dissolvenza */
+}
+
+/* Logo centrato e animato */
+#preloader-notizie img {
+    width: 350px;                  /* Dimensione logo */
+    animation: fadeIn 1.2s ease-in-out infinite alternate; /* Effetto respirazione */
+}
+
+/* Animazione di fade per il logo */
+@keyframes fadeIn {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  --w:10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  line-height: 1.2em;
+  letter-spacing: var(--w);
+  width: var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  color: #0000;
+  animation: l17 2s infinite;
+}
+.loader:before {
+  content:"Loading...";
+}
+
+
+/* Stile per il testo <h2> nel preloader */
+.preloader-text {
+    display: flex;
+    gap: 5px;                      /* Spaziatura tra lettere */
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-left: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.preloader-text span {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+
+.preloader-text span:nth-child(1) { animation-delay: 0s; }
+.preloader-text span:nth-child(2) { animation-delay: 0.1s; }
+.preloader-text span:nth-child(3) { animation-delay: 0.2s; }
+.preloader-text span:nth-child(4) { animation-delay: 0.3s; }
+.preloader-text span:nth-child(5) { animation-delay: 0.4s; }
+.preloader-text span:nth-child(6) { animation-delay: 0.5s; }
+.preloader-text span:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+}
+
+
+
+
+
+
+/* =============================== */
+/* =============================== */
+/* === HEADER NOTIZIE === */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, #8d2121 60%, #FFD700); /* Sfumatura rosso-giallo */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: 20px 15px;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    border-radius: 0 0 15px 15px;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideDown 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* === ANIMAZIONE ENTRATA HEADER === */
+@keyframes fadeSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RIDUZIONE HEADER ALLO SCROLL === */
+header.shrink {
+    padding: 5px 15px;
+    height: 50px;
+}
+
+/* Riduce immagine logo */
+header.shrink .logo-img {
+    width: 70px;
+    transition: width 0.3s ease;
+}
+
+/* Nasconde i testi accanto al logo */
+header.shrink .testi-logo {
+    display: none;
+}
+
+/* === LOGO === */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Immagine del logo */
+.logo-img {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+/* Contenitore dei testi */
+.testi-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titolo principale */
+header .logo h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Sottotitolo */
+header .logo h2 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* === MENU DI NAVIGAZIONE === */
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Nasconde il menu in modalità shrink */
+header.shrink .nav-menu {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mostra il menu in modalità espansa (quando clicchi toggle) */
+header.expanded .nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Lista dei link */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile link */
+header nav ul li a {
+    font-family: 'Georgia', 'Arial', sans-serif;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.6;
+
+    border: 3px solid white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s, color 0.3s;
+}
+
+/* Hover sui link */
+header nav ul li a:hover {
+    color: rgba(3, 3, 0, 0.973);
+    border-color: rgba(0, 0, 0, 0.973);
+}
+
+/* === TOGGLE BUTTON (due linee) === */
+.toggle-btn {
+    display: none; /* nascosto di default */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Aspetto delle linee */
+.toggle-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+/* Mostra il toggle solo quando l’header è ridotto */
+header.shrink .toggle-btn {
+    display: flex;
+}
+
+/* Quando header viene riaperto col toggle */
+header.expanded {
+    padding: 20px 15px;
+    height: auto;
+}
+
+
+
+
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* === SCRITTA COMING SOON === */
+
+
+
+/* Contenitore principale: centra tutto il testo orizzontalmente */
+.container {
+  text-align: center;
+  font-family: 'Poppins', sans-serif; /* Font più moderno e pulito */
+  padding-top: 150px;                 /* Sposta tutto verso il basso */
+}
+
+/* Stile e animazione per la scritta "Non ancora nessuna notizia" */
+.notizia {
+  font-size: 4rem;            /* Dimensione molto grande per evidenziare */
+  font-weight: 700;           /* Grassetto per dare importanza */
+  margin: 0;                  /* Nessun margine sopra o sotto */
+  animation: fadeInSlide 2s ease forwards;  /* Animazione di comparsa con slide verso l'alto */
+  color: #ffffff;   
+}
+
+/* Stile e animazione per la scritta "COMING SOON..." */
+.coming-soon {
+  font-size: 3rem;            /* Dimensione leggermente più piccola */
+  font-weight: 600;           /* Grassetto medio */
+  color: #ffcc00;             /* Colore giallo brillante */
+  letter-spacing: 5px;        /* Spaziatura ampia tra le lettere */
+  margin: 10px 0 0 0;         /* Spazio sopra per distanziare dalla scritta superiore */
+  animation: glowPulse 2.5s infinite alternate; /* Animazione di bagliore che pulsa all'infinito */
+}
+
+
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+
+
+

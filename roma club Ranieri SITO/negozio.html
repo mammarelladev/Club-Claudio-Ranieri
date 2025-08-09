@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Negozio - Roma Club Larino</title>
+  <link rel="stylesheet" href="romaClubRanieri.css" />
+  <link rel="stylesheet" href="negozio.css" />
+  <link rel="stylesheet" href="mobileNegozio.css" media="screen and (max-width: 768px)">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+
+ <!-- Intestazione -->
+    <header id="header-negozio">
+        <div class="logo">
+            <img src="fotoLogo.png" alt="Logo" class="logo-img" />
+            <div class="testi-logo">
+                <h1>Roma Club Larino</h1>
+                <h2><b>"Claudio Ranieri"</b></h2>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="romaClubRanieri.html#home">Home</a></li>
+                <li><a href="romaClubRanieri.html#chiSiamo">Chi Siamo</a></li>
+                <li><a href="notizie.html">notizie</a></li>
+                <li><a href="romaClubRanieri.html#sponsor">Sponsor</a></li>
+            </ul>
+        </nav>
+
+        
+    </header>
+
+
+<body id="body-negozio">
+
+  <!-- Preloader -->
+  <div id="preloader-negozio">
+    <img src="fotoLogo.png" alt="Logo Roma Club Larino" />
+    <h2 class="preloader-text">
+      <span>N</span><span>e</span><span>g</span><span>o</span><span>z</span><span>i</span><span>o</span>
+    </h2>
+  </div>
+
+  <!-- Titolo e descrizione -->
+  <h1 id="titolo-negozio">NEGOZIO DEL CLUB</h1>
+  <p id="descizione-negozio">prenota qui i nostri prodotti</p>
+
+  <main>
+    <aside class="cart">
+      <h2>Carrello</h2>
+      <div class="cart-item">
+        Magliette
+        <button>-</button>
+      </div>
+    </aside>
+
+    <div class="gallery">
+      <!-- Prodotto 1 -->
+      <div class="photo-box">
+        <div class="image-slider">
+          <img src="magliaNera1.jpg" alt="Vista frontale" class="active" />
+          <img src="magliaNera2.jpg" alt="Vista posteriore" />
+        </div>
+         <div class="dots">
+            <span class="dot active-dot" onclick="showImage(this, 0)"></span>
+            <span class="dot" onclick="showImage(this, 1)"></span>
+          </div>
+        <div class="photo-content">
+          <div class="availability available">Disponibile</div>
+          <div class="product-name">T-Shirt Nera</div>
+          <div class="price">€25</div>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=romaclublarino@gmail.com&su=Richiesta+T-shirt+nera&body=Salve%2C%0A%0Avorrei+acquistare+la+vostra+t-shirt+nera." class="book-button" target="_blank">
+           Prenota 
+          </a>
+        </div>
+      </div>
+
+      <!-- Prodotto 2 -->
+      <div class="photo-box">
+        <div class="image-slider">
+          <img src="magliaBianca1.jpg" alt="Vista frontale" class="active" />
+          <img src="magliaBianca2.jpg" alt="Vista posteriore" />
+        </div>
+         <div class="dots">
+            <span class="dot active-dot" onclick="showImage(this, 0)"></span>
+            <span class="dot" onclick="showImage(this, 1)"></span>
+          </div>
+        <div class="photo-content">
+            <div class="availability available">Disponibile</div>
+          <div class="product-name">T-shirt Bianco</div>
+          <div class="price">€25</div>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=romaclublarino@gmail.com&su=Richiesta+T-shirt+bianca&body=Salve%2C%0A%0Avorrei+acquistare+la+vostra+t-shirt+bianca." class="book-button" target="_blank">
+          Prenota
+         </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Preloader Script -->
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader-negozio');
+      if (!preloader) return;
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 2500);
+    });
+  </script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

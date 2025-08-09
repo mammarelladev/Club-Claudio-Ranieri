@@ -1,0 +1,569 @@
+/* =============================== */
+/*                                 */
+/* =============================== */
+/* =============================== */
+/*                                 */
+/* =============================== */
+/* =============================== */
+/*          CSS NEGOZIO            */
+/* =============================== */
+
+#body-negozio {
+  background-image: url('fotoSfondoNegozio.svg');       /* Imposta l'immagine di sfondo */
+  background-size: cover;                         /* Fa in modo che l'immagine copra tutto */
+  background-position: center;                    /* Centra l'immagine nello sfondo */
+  background-repeat: no-repeat;                   /* Impedisce la ripetizione dell'immagine */
+  min-height: 100vh;                              /* Altezza minima dell'intera finestra */
+  position: relative;                             /* Necessario per il posizionamento dell'overlay */
+  overflow: hidden;                               /* Nasconde qualsiasi contenuto che esce dal body */
+}
+
+#body-negozio::before {
+  content: "";                                    /* Crea un contenuto vuoto per l’overlay */
+  position: absolute;                             /* Posiziona l’overlay assolutamente */
+  top: 0; left: 0;                                /* Allinea l’overlay in alto a sinistra */
+  width: 100%; height: 100%;                      /* Fa coprire tutto lo sfondo al layer */
+  background-color: rgba(0, 0, 0, 0.3);           /* Colore nero con trasparenza 40% */
+  z-index: 1;                                     /* Lo posiziona sotto i contenuti della pagina */
+}
+
+#body-negozio > * {
+  position: relative;                             /* Rende i contenuti sovrapposti all’overlay */
+  z-index: 2;                                     /* Li mette sopra l’overlay scuro */
+}
+
+
+/* Stile per il testo <h2> nel preloader */
+.preloader-text {
+    color: #fff;                  /* Colore del testo bianco per risaltare sullo sfondo nero */
+    font-family: 'Playfair Display', serif; /* Font elegante, lo stesso del resto del sito */
+    font-size: 2.5rem;            /* Dimensione del testo abbastanza grande da essere visibile */
+    margin-left: 20px;            /* Spazio a sinistra per distanziare dal logo */
+    font-weight: 700;             /* Testo in grassetto per maggiore enfasi */
+    text-transform: uppercase;    /* Testo tutto maiuscolo per uniformità e impatto */
+    letter-spacing: 2px;          /* Spaziatura tra le lettere per migliorare la leggibilità */
+    animation: pulseText 1.5s ease-in-out infinite alternate; /* Animazione pulsante per dare vita al testo */
+}
+
+/* Definizione animazione "pulseText" */
+@keyframes pulseText {
+    from {
+        opacity: 0.6;              /* Testo leggermente trasparente all'inizio */
+        transform: scale(1);       /* Scala normale senza ingrandimenti */
+    }
+    to {
+        opacity: 1;                /* Testo completamente opaco alla fine */
+        transform: scale(1.05);    /* Leggero ingrandimento per effetto "battito" */
+    }
+}
+
+
+
+
+/* =============================== */
+/* ==============PRELOADER NEGOZIO================= */
+
+#preloader-negozio {
+    position: fixed;               /* Si fissa sopra tutta la pagina */
+    top: 0;
+    left: 0;
+    width: 100vw;                  /* Larghezza 100% della finestra */
+    height: 100vh;                 /* Altezza 100% della finestra */
+    background-color: #000;        /* Sfondo nero (modificabile) */
+    display: flex;                 /* Per centrare il contenuto */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;                 /* Si posiziona sopra tutto */
+    transition: opacity 0.5s ease; /* Per l'effetto dissolvenza */
+}
+
+/* Logo centrato e animato */
+#preloader-negozio img {
+    width: 350px;                  /* Dimensione logo */
+    animation: fadeIn 1.2s ease-in-out infinite alternate; /* Effetto respirazione */
+}
+
+/* Animazione di fade per il logo */
+@keyframes fadeIn {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  --w:10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  line-height: 1.2em;
+  letter-spacing: var(--w);
+  width: var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  color: #0000;
+  animation: l17 2s infinite;
+}
+.loader:before {
+  content:"Loading...";
+}
+
+
+/* Stile per il testo <h2> nel preloader */
+.preloader-text {
+    display: flex;
+    gap: 5px;                      /* Spaziatura tra lettere */
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-left: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.preloader-text span {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+
+.preloader-text span:nth-child(1) { animation-delay: 0s; }
+.preloader-text span:nth-child(2) { animation-delay: 0.1s; }
+.preloader-text span:nth-child(3) { animation-delay: 0.2s; }
+.preloader-text span:nth-child(4) { animation-delay: 0.3s; }
+.preloader-text span:nth-child(5) { animation-delay: 0.4s; }
+.preloader-text span:nth-child(6) { animation-delay: 0.5s; }
+.preloader-text span:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+}
+
+
+
+
+
+
+/* =============================== */
+/* =============================== */
+/* === HEADER NEGOZIO === */
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, #8d2121 60%, #FFD700); /* Sfumatura rosso-giallo */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: 20px 15px;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    border-radius: 0 0 15px 15px;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideDown 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* === ANIMAZIONE ENTRATA HEADER === */
+@keyframes fadeSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RIDUZIONE HEADER ALLO SCROLL === */
+header.shrink {
+    padding: 5px 15px;
+    height: 50px;
+}
+
+/* Riduce immagine logo */
+header.shrink .logo-img {
+    width: 70px;
+    transition: width 0.3s ease;
+}
+
+/* Nasconde i testi accanto al logo */
+header.shrink .testi-logo {
+    display: none;
+}
+
+/* === LOGO === */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Immagine del logo */
+.logo-img {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+/* Contenitore dei testi */
+.testi-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titolo principale */
+header .logo h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Sottotitolo */
+header .logo h2 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* === MENU DI NAVIGAZIONE === */
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Nasconde il menu in modalità shrink */
+header.shrink .nav-menu {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mostra il menu in modalità espansa (quando clicchi toggle) */
+header.expanded .nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Lista dei link */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile link */
+header nav ul li a {
+    font-family: 'Georgia', 'Arial', sans-serif;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.6;
+
+    border: 3px solid white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s, color 0.3s;
+}
+
+/* Hover sui link */
+header nav ul li a:hover {
+    color: rgba(3, 3, 0, 0.973);
+    border-color: rgba(0, 0, 0, 0.973);
+}
+
+/* === TOGGLE BUTTON (due linee) === */
+.toggle-btn {
+    display: none; /* nascosto di default */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Aspetto delle linee */
+.toggle-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+/* Mostra il toggle solo quando l’header è ridotto */
+header.shrink .toggle-btn {
+    display: flex;
+}
+
+/* Quando header viene riaperto col toggle */
+header.expanded {
+    padding: 20px 15px;
+    height: auto;
+}
+
+
+
+
+
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+/* ===  === *//* ===  === *//* ===  === *//* ===  === */
+
+
+
+/* === TITOLO PRINCIPALE DEL NEGOZIO === */
+#titolo-negozio {
+  margin-top: 25px;        /* Spazio dal top per non sovrapporsi all’header fisso */
+  text-align: center;         /* Testo allineato a sinistra */
+  font-size: 2.1rem;          /* Grandezza del titolo */
+  color:#f9f9f9;
+}
+
+/* === DESCRIZIONE SOTTO IL TITOLO === */
+#descizione-negozio {
+  margin-top: 7px;         /* Distanza dal titolo */
+  text-align: center;         
+  font-size: 1.5rem;        /* Grandezza descrizione */
+  color: #ffffff;              /* Grigio scuro leggibile */
+  opacity: 0.85;            /* Leggera trasparenza */
+  margin-bottom: 40px;      /* Spazio sotto prima del contenuto */
+}
+
+/* === CONTAINER PRINCIPALE (main) CON FLEX === */
+main {
+  display: flex;                     /* Attiva layout flex */
+  gap: 30px;                         /* Spazio tra colonne (carrello e galleria) */
+  padding: 0 30px 40px 30px;         /* Spaziatura interna */
+  max-width: 1200px;                 /* Larghezza massima centrata */
+  margin: 0 auto;                    /* Centra l’intero blocco */
+  flex-grow: 1;                      /* Consente crescita se necessario */
+  justify-content: flex-start;      /* Allinea gli elementi all’inizio (a sinistra) */
+}
+
+/* === CARRELLO STICKY MODERNO === */
+aside.cart {
+  flex: 1;                           /* Occupa 1 parte del layout (meno della galleria) */
+  background: linear-gradient(135deg, #ffe0b2, #fff3e0); /* Sfondo gradiente */
+  border-radius: 16px;              /* Angoli arrotondati */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  padding: 25px;                    /* Spaziatura interna */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;                        /* Spazio tra elementi interni */
+  max-height: 340px;               /* Altezza massima */
+  order: 0;                         /* Si posiziona per primo a sinistra */
+  position: sticky;                /* Si blocca in posizione durante lo scroll */
+  top: 30px;                        /* Si blocca a 30px dal bordo superiore */
+  align-self: flex-start; /* assicura allineamento all’inizio se genitore è flex */
+
+  
+
+  /* Animazione in entrata da sinistra con ritardo */
+  animation: fadeInLeft 0.8s ease-out;
+  animation-delay: 2.6s;
+  animation-fill-mode: both;        /* Mantiene lo stato finale dell'animazione */
+}
+
+/* === ELEMENTI INTERNI DEL CARRELLO === */
+.cart-item {
+  display: flex;                    /* Layout flessibile */
+  justify-content: flex-start; /* Allinea tutto a sinistra */
+  align-items: center;
+  background: #fff;                /* Sfondo bianco */
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Leggera ombra */
+  gap: 10px; /* spazio tra testo e bottone */
+}
+
+/* === BOTTONE DEL CARRELLO (per rimuovere o modificare) === */
+.cart-item button {
+  background: #fa3a00;             /* Arancione acceso */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* === GALLERIA DEI PRODOTTI (GRIGLIA) === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Due o più colonne */
+  gap: 60px;
+  padding: 0 30px 40px 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+  animation: fadeInRight 0.8s ease-out;
+  animation-delay: 2.6s;
+  animation-fill-mode: both;
+}
+
+/* === BOX CHE CONTIENE OGNI FOTO === */
+.photo-box {
+  background: #f9f9f9;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.photo-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* === CONTENUTO INTERNO DEL BOX FOTO === */
+.photo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-out;
+  animation-delay: 2.6s;
+  animation-fill-mode: both;
+}
+
+/* === SLIDER IMMAGINI MAGLIETTE === */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 400px;                    /* Altezza maggiore per magliette grandi */
+  overflow: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* o 'space-between' se metti i dots sotto */
+}
+.image-slider img {
+      display: none;
+      width: 100%;
+      max-width: 400px;
+    }
+    .image-slider img.active {
+      display: block;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: gray;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .dot.active-dot {
+      background: black;
+    }
+    
+.dot:hover {
+  background-color: #666;
+}
+
+.dot.active-dot {
+  background-color: #272626; /* pallino attivo più scuro */
+}
+
+/* === STATO DISPONIBILITÀ === */
+.availability {
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.available {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.unavailable {
+  background-color: #ffcdd2;
+  color: #c62828;
+}
+
+/* === NOME PRODOTTO === */
+.product-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* === PREZZO === */
+.price {
+  font-size: 1.3rem;
+  color: #777;
+}
+
+/* === BOTTONE “PRENOTA” === */
+.book-button {
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.book-button:hover {
+  background-color: #1e88e5;
+}
+
+/* === ANIMAZIONI === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
