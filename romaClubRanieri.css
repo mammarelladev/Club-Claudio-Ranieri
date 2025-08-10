@@ -1,0 +1,1248 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ------------------------------------------------------- */
+
+/* Intestazione */
+/* === HEADER (contenitore principale) === */
+/* === HEADER GLOBALE === */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, #8d2121 60%, #FFD700); /* Sfumatura rosso-giallo */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: 20px 15px;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    border-radius: 0 0 15px 15px;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideDown 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* === ANIMAZIONE ENTRATA HEADER === */
+@keyframes fadeSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RIDUZIONE HEADER ALLO SCROLL === */
+header.shrink {
+    padding: 5px 15px;
+    height: 50px;
+}
+
+/* Riduce immagine logo */
+header.shrink .logo-img {
+    width: 70px;
+    transition: width 0.3s ease;
+}
+
+/* Nasconde i testi accanto al logo */
+header.shrink .testi-logo {
+    display: none;
+}
+
+/* === LOGO === */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Immagine del logo */
+.logo-img {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+/* Contenitore dei testi */
+.testi-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titolo principale */
+header .logo h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Sottotitolo */
+header .logo h2 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* === MENU DI NAVIGAZIONE === */
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Nasconde il menu in modalità shrink */
+header.shrink .nav-menu {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mostra il menu in modalità espansa (quando clicchi toggle) */
+header.expanded .nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Lista dei link */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile link */
+header nav ul li a {
+    font-family: 'Georgia', 'Arial', sans-serif;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.6;
+
+    border: 3px solid white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s, color 0.3s;
+}
+
+/* Hover sui link */
+header nav ul li a:hover {
+    color: rgba(3, 3, 0, 0.973);
+    border-color: rgba(0, 0, 0, 0.973);
+}
+
+/* === TOGGLE BUTTON (due linee) === */
+.toggle-btn {
+    display: none; /* nascosto di default */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Aspetto delle linee */
+.toggle-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+/* Mostra il toggle solo quando l’header è ridotto */
+header.shrink .toggle-btn {
+    display: flex;
+}
+
+/* Quando header viene riaperto col toggle */
+header.expanded {
+    padding: 20px 15px;
+    height: auto;
+}
+
+
+
+/* ------------------------------------------------------- */
+
+/* Sezione Intro */
+.intro {
+    position: relative;                             /* Serve per posizionare correttamente il ::before assoluto */
+    background-image: url('fotoIntro.jpg'); /* Immagine di sfondo della sezione */
+    background-size: cover;                         /* L'immagine copre tutta la sezione (ritagliata se necessario) */
+    background-position: center;                    /* Centra l'immagine sia orizzontalmente che verticalmente */
+    background-attachment: scroll;                  /* L'immagine si muove insieme allo scroll della pagina */
+    color: white;                                   /* Colore del testo sopra l'immagine */
+    padding: 500px 30px;                            /* Spazio interno: 400px in alto e in basso, 20px ai lati */
+    text-align: center;                             /* Allinea il testo al centro */
+    overflow: hidden;                               /* Nasconde eventuali elementi che escono dai bordi */
+}
+
+.contact-button {
+  background-color: #FFD700; /* giallo */
+  color: rgb(0, 0, 0);
+  padding: 15px 30px;
+  font-size: 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+/* Overlay scuro sopra l'immagine di sfondo */
+.intro::before {
+    content: "";                                    /* Necessario per generare il pseudoelemento */
+    position: absolute;                             /* Posiziona l'overlay in modo assoluto rispetto al contenitore */
+    top: 0;                                          /* Parte dall'alto */
+    left: 0;                                         /* Parte da sinistra */
+    width: 100%;                                     /* Larghezza dell'intera sezione */
+    height: 100%;                                    /* Altezza dell'intera sezione */
+    background-color: rgba(0, 0, 0, 0.5);            /* Colore nero semi-trasparente (opacità 50%) */
+    z-index: 0;                                      /* Posizionato dietro al contenuto della sezione */
+}
+
+/* Porta in primo piano il testo e altri contenuti dentro .intro */
+.intro * {
+    position: relative;                             /* Necessario per far sì che il testo stia sopra l'overlay */
+    z-index: 1;                                      /* Assicura che il contenuto sia sopra il ::before */
+}
+
+.intro h2 {
+    font-size: 2.4rem;                        /* Grandezza del testo */
+    font-family: 'Montserrat', sans-serif;   /* Font moderno */
+    font-weight: 700;                         /* Grassetto */
+    line-height: 1.5;                         /* Spaziatura verticale ridotta */
+    text-align: center;                       /* Allineamento al centro */
+    margin: 0 auto;                           /* Centra il blocco */
+    max-width: 1200px;                        /* Permette di allungarsi su schermi larghi */
+    text-transform: uppercase;                /* Tutto in maiuscolo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Ombra per visibilità */
+    letter-spacing: 3px;                      /* Allunga lo spazio tra le lettere */
+    overflow: hidden;                         /* Nasconde eventuali overflow */
+    text-overflow: ellipsis;                  /* (facoltativo) aggiunge ... se il testo viene tagliato */
+}
+.intro h3 {
+    font-size: 4.7rem;                        /* Grandezza del testo */
+    font-family: 'Montserrat', sans-serif;   /* Font moderno */
+    font-weight: 700;                         /* Grassetto */
+    line-height: 1.5;                         /* Spaziatura verticale ridotta */
+    text-align: center;                       /* Allineamento al centro */
+    margin: 0 auto;                           /* Centra il blocco */
+    max-width: 1200px;                        /* Permette di allungarsi su schermi larghi */
+    text-transform: uppercase;                /* Tutto in maiuscolo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Ombra per visibilità */
+    letter-spacing: 3px;                      /* Allunga lo spazio tra le lettere */
+    overflow: hidden;                         /* Nasconde eventuali overflow */
+    text-overflow: ellipsis;                  /* (facoltativo) aggiunge ... se il testo viene tagliato */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.intro p {
+    position: relative; /* Per stare sopra al fade */
+    z-index: 2;
+    font-size: 1.4rem; 
+}
+
+/*--------------------BARRA NERA-------------------------------------*/
+.barra-nera {
+  background-color: black;      /* Sfondo nero */
+  color: rgb(122, 120, 120);                 /* Testo bianco */
+  padding: 10px 10px;           /* Spaziatura verticale più grande */
+  font-size: 1.8em;             /* Testo più grande */
+  font-weight: bold;            /* Testo in grassetto */
+  white-space: nowrap; 
+ 
+}
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;        /* parte fuori a destra */
+  animation: scroll-left 40s linear infinite;
+}
+
+/* Animazione che sposta da destra verso sinistra */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ------------------------------------------------------- */
+
+/* ZOOM-IN (per la sezione .intro) */
+.intro {
+    opacity: 0;                             /* Inizia trasparente */
+    transform: scale(0.95);                /* Leggermente più piccola (zoom out iniziale) */
+    animation: zoomIn 1s ease-out forwards; /* Esegue zoomIn in 1s con easing fluido */
+}
+
+.intro {
+    animation-delay: 3s;                 /* Aspetta 0.7s prima di iniziare */
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;                        /* Rende visibile */
+        transform: scale(1);               /* Riporta alla dimensione originale */
+    }
+}
+
+
+/* ------------------------------------------------------- */
+
+/* Contenitore del preloader: copre tutta la finestra */
+#preloader {
+    position: fixed;               /* Si fissa sopra tutta la pagina */
+    top: 0;
+    left: 0;
+    width: 100vw;                  /* Larghezza 100% della finestra */
+    height: 100vh;                 /* Altezza 100% della finestra */
+    background-color: #000;        /* Sfondo nero (modificabile) */
+    display: flex;                 /* Per centrare il contenuto */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;                 /* Si posiziona sopra tutto */
+    transition: opacity 0.5s ease; /* Per l'effetto dissolvenza */
+}
+
+/* Logo centrato e animato */
+#preloader img {
+    width: 350px;                  /* Dimensione logo */
+    animation: fadeIn 1.2s ease-in-out infinite alternate; /* Effetto respirazione */
+}
+
+/* Animazione di fade per il logo */
+@keyframes fadeIn {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+
+
+/* ------------------------------------------------------- */
+
+
+/* CHI SIAMO */
+
+
+/*-------------- H1--------------------------------------------------------*/
+/* Stile per i titoli dentro .scroll-section */
+.scroll-section h1 {
+    text-align: left;      /* Allinea il testo a sinistra */
+    font-size: 4em;        /* Imposta una dimensione del font grande */
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    z-index: 2;
+}
+
+/* Contenitore che ospita le scritte da animare */
+.scroll-section {
+  position: relative;
+  padding: 100px 20px;
+  min-height: 50vh;
+  background-image: url('fotoRomaChiSiamo.jpg');
+  background-size: cover;        /* Zoom-out leggero */
+  background-position: center;
+  background-attachment: scroll;
+  overflow: hidden;
+  color: #d31f1f;
+  background-repeat: no-repeat;
+}
+
+.scroll-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);   /* Oscuramento */
+  z-index: 1;
+}
+
+/* Stato iniziale: il testo è spostato a sinistra e invisibile */
+.scroll-text1 {
+  opacity: 0;                      /* Testo completamente trasparente */
+  transform: translateX(-100px);  /* Spostato verso sinistra di 100px */
+  transition: all 0.8s ease-out;  /* Transizione fluida di 0.8s */
+}
+
+/* Quando viene aggiunta la classe .visible: appare con animazione */
+.scroll-text1.visible {
+  opacity: 1;              /* Rende il testo visibile */
+  transform: translateX(0); /* Riporta il testo alla sua posizione originale */
+}
+
+/*--------------H2--------------------------------------------------------*/
+
+.scroll-text2 {
+  opacity: 0;
+  transform: translateX(-100px);  /* Entrano da sinistra */
+  transition: opacity 1.4s ease-out, transform 1.4s ease-out;
+
+
+font-family: 'Poppins', sans-serif;
+  font-size: 1.3em;
+  color: #f0f0f0 !important;
+  background: transparent !important;
+  text-shadow: none !important;
+  line-height: 1.2;                         /* Spaziatura verticale ridotta */
+
+  max-width: 30vw;          /* Larghezza massima */
+  margin-top: 20px;
+
+  margin-left: 0;           /* Bordo sinistro */
+  margin-right: auto;       /* Spinge verso sinistra */
+
+  text-align:left;
+
+  position: relative;
+  z-index: 2;
+
+}
+
+.scroll-text2.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*----------------RIDUCIMENTO EFFETTI STRANI TEL-------------*/
+@media (max-width: 768px) {
+  .scroll-section {
+    background-attachment: scroll; /* disattiva parallax su mobile */
+    padding: 60px 15px;
+  }
+
+  .scroll-text2 {
+    font-size: 1rem;
+    text-align: justify;
+  }
+}
+
+/*--------------FOTO--------------------------------------------------------*/
+
+
+/* === Contenitore che affianca testo e immagini === */
+.scroll-section-content {
+  display: flex;
+  flex-direction: row;      /* Testo a sinistra, immagini a destra */
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;          /* Va a capo su schermi piccoli */
+  gap: 20px;                /* Spazio tra testo e immagini */
+}
+
+/* === Blocchi di testo (già esistenti) === */
+.scroll-text1,
+.scroll-text2 {
+  flex: 1 1 40%;            /* Prende circa metà spazio */
+}
+
+/* === Contenitore immagini a scaletta === */
+.staggered-photo-grid {
+  flex: 1 1 30%;                /* <- Limita la larghezza al 45% dello schermo */ 
+  max-width: 30vw;            /* Anche questo prende circa metà */
+  position: relative;
+  display: flex;
+  flex-direction: column;  /* Foto in colonna */
+  align-items: flex-start;
+  gap: 20px;                /* Spazio verticale tra le foto */
+  margin-top: 20px;
+  z-index: 2;
+}
+
+/* === Stile base immagini === */
+
+.photo-item {
+  width: 310px;
+  aspect-ratio: 4 / 3;   /* Forza rapporto rettangolare (es. 4:3) */
+  object-fit: cover;     /* Ritaglia mantenendo il centro */
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.8s ease-out;
+
+}
+
+/* === Posizionamento sinistra/destra con rotazione iniziale === */
+.photo-left {
+  align-self: flex-start;                                   /* Allinea a sinistra */
+  transform: translateX(-40px) translateY(40px) rotate(-5deg);
+   transition-delay: 0.7s;
+}
+.photo-right {
+  align-self: flex-end;                                     /* Allinea a destra */
+  transform: translateX(40px) translateY(40px) rotate(5deg);
+   transition-delay: 0.7s;
+}
+
+/* === Quando entra in vista: effetto di comparsa e raddrizzamento === */
+.staggered-photo-grid.visible .photo-item {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+   transition-delay: 0.5s;
+}
+
+
+/*--------------------BARRA NERA-------------------------------------*/
+.barra-nera {
+  background-color: black;      /* Sfondo nero */ 
+  height: 50px;                  /* Altezza personalizzabile */
+  width: 100%;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/*-------------- GRAFICO A TORTA -----------------------*/
+
+.grafico-titolo {
+  color: white;
+  font-size: 2.5rem;               /* Grandezza titolo */
+  text-align: center;     
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif; /* Cambia se vuoi altro font */
+  position: relative;
+  z-index: 2;                    /* Deve stare sopra l'overlay */
+}
+
+.grafico-wrapper {
+  position: relative;
+  background-image: url('fotoGraficoRomaClub.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Overlay scuro sopra l’immagine */
+.grafico-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* Puoi regolare l'oscuramento */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.grafico-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; /* altezza della sfumatura */
+  background: linear-gradient(to bottom, transparent, black);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Assicura che i grafici stiano sopra l’overlay */
+#chart {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Contenitore principale dei 4 grafici */
+#chart {
+  width: 600px;                  /* larghezza fissa */
+  max-width: 90vw;               /* max 90% viewport per responsive */
+  margin: 40px auto;             /* centrato con margine sopra e sotto */
+  background: transparent;             
+  padding: 20px;
+  border-radius: 12px;           /* angoli arrotondati */
+  color: white;                  /* colore testo di default */
+  font-family: Arial, sans-serif;
+  display: flex;                 /* layout flexbox per affiancare grafici */
+  flex-wrap: wrap;               /* wrap su più righe se necessario */
+  justify-content: center; /* spazio equo tra i grafici */
+  gap: 30px;                    /* distanza tra i grafici */
+}
+
+/* Contenitore singolo grafico */
+.pie-chart {
+  width: 250px;                  /* larghezza fissa */
+  height: 250px;                 /* altezza fissa */
+  position: relative;            /* per posizionare etichetta assoluta */
+  transition-delay: 0.8s;
+  flex: 0 0 250px;  /* larghezza fissa 250px, non si riduce */
+}
+
+/* Testo percentuale al centro del cerchio */
+.pie-label {
+  position: absolute;            /* posizione assoluta dentro .pie-chart */
+  top: 50%;                     /* centrato verticalmente */
+  left: 50%;                    /* centrato orizzontalmente */
+  transform: translate(-50%, -50%); /* centratura esatta */
+  font-size: 2rem;              /* dimensione testo */
+  font-weight: bold;
+  pointer-events: none;         /* testo non interattivo */
+  user-select: none;            /* testo non selezionabile */
+  color: #f4a900;               /* colore giallo-oro */
+  text-shadow: 0 0 3px #f4a900; /* bagliore giallo */
+  text-align: center;
+}
+
+/* Descrizione del grafico sotto il cerchio */
+.pie-subtitle {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #ffffff;                  /* bianco */
+  text-align: center;
+}
+
+/* --- CSS --- */
+
+/* Titolo iniziale: invisibile e scalato più piccolo */
+.grafico-titolo {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 1s ease;
+  font-size: 2.5rem;
+  text-align: center;      
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Quando la classe active viene aggiunta, mostra il titolo */
+.grafico-titolo.active {
+  opacity: 1;    
+  transform: scale(1) translateX(-250px);  /* << Sposta a sinistra  */
+}
+
+/* Contenitore singolo grafico: invisibile e spostato in basso */
+.pie-chart {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.55, 0.055, 0.675, 0.19), 
+              transform 0.7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* Quando active viene aggiunta, grafico diventa visibile e risale */
+.pie-chart.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grafico-contenuto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/*-------------------NEWS ----------------------------*/
+
+/* Contenitore principale del box "Ultime Notizie" */
+.notizie-box {
+  width: 500px;                     /* Larghezza fissa del box */
+   max-width: 90vw;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.12);  /* Sfondo bianco molto trasparente */
+  padding: 20px;                   /* Spaziatura interna */
+  border-radius: 10px;             /* Angoli arrotondati */
+  color: white;                   /* Colore del testo */
+  font-family: Arial, sans-serif; /* Font di default */
+
+  /* Effetto iniziale: spostato a destra e invisibile */
+  transform: translateX(100px);   
+  opacity: 0;
+
+  /* Transizione fluida di tutte le proprietà */
+  transition: all 1s ease;
+  transition-delay: 0.5s;          /* Ritardo di mezzo secondo prima dell'animazione */
+
+  z-index: 2;                     /* Sta sopra altri elementi (se si sovrappongono) */
+  position: relative;             /* Necessario per il corretto funzionamento di z-index */
+
+  /* Layout a colonna per disporre bottone e gallery verticalmente */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                      /* Spazio tra bottone e gallery */
+}
+
+/* Stato attivo: box visibile e nella posizione originale */
+.notizie-box.active {
+  transform: translateX(0);       /* Torna nella posizione originale */
+  opacity: 1;                     /* Diventa visibile */
+}
+
+/* Titolo del box notizie */
+.notizie-titolo {
+  font-size: 1.6rem;              /* Dimensione del testo */
+  margin-bottom: 12px;            /* Spazio sotto il titolo */
+  color: #f4a900;                 /* Colore giallo-oro */
+  border-bottom: 1px solid #f4a900; /* Linea sotto il titolo */
+  padding-bottom: 5px;            /* Spazio sotto il testo e sopra la linea */
+}
+
+/* Testo di anteprima della notizia */
+.notizia-link-preview {
+  margin-top: 0px;               /* Spazio sopra */
+  margin-bottom: 3px;
+  font-size: 1.25rem;             /* Dimensione leggermente più piccola */
+  color: #ddd;                   /* Colore grigio chiaro */
+}
+
+/* Bottone di link alle notizie */
+.notizia-btn {
+  display: inline-block;          /* Permette padding e margin */
+  margin-top: 3px;               /* Spazio sopra */
+  background-color: #f4a900;      /* Sfondo giallo-oro */
+  color: #000;                   /* Testo nero */
+  padding: 8px 12px;              /* Spaziatura interna */
+  border-radius: 6px;             /* Angoli arrotondati */
+  text-decoration: none;          /* Rimuove sottolineatura */
+  font-weight: bold;              /* Testo in grassetto */
+  transition: background-color 0.3s; /* Transizione fluida al cambio colore */
+}
+
+/* Colore bottone al passaggio del mouse */
+.notizia-btn:hover {
+  background-color: #c98900;      /* Giallo più scuro */
+}
+
+/*-------------------IMMAGINI ----------------------------*/
+
+/* Contenitore principale della gallery di immagini */
+.club-gallery {
+  position: relative;             /* Per posizionare le immagini assolutamente al suo interno */
+  width: 100%;                   /* Occupa tutta la larghezza del genitore (.notizie-box) */
+  max-width: 480px;               /* Limita la larghezza massima a 400px */
+  height: 360px;                 /* Altezza fissa per la gallery */
+  overflow: hidden;              /* Nasconde tutto ciò che esce fuori */
+  border-radius: 8px;            /* Angoli arrotondati */
+  background: #000;              /* Sfondo nero per far risaltare le immagini */
+  margin-top: 10px;              /* Spazio sopra la gallery */
+}
+
+/* Stile base per ogni immagine nella gallery */
+.club-img {
+  position: absolute;            /* Tutte le immagini si sovrappongono */
+  top: 0;                       /* Posizionate in alto nel contenitore */
+  left: 0;                      /* Posizionate a sinistra */
+  width: 100%;                  /* Occupano tutta la larghezza del contenitore */
+  height: 100%;                 /* Occupano tutta l’altezza del contenitore */
+  object-fit: cover;            /* L’immagine copre il contenitore senza distorsione */
+
+  opacity: 0;                   /* Invisibili di default */
+  transition: opacity 1s ease; /* Transizione di opacità per effetto fade */
+  pointer-events: none;         /* Non cliccabili quando invisibili */
+  border-radius: 8px;           /* Angoli arrotondati */
+}
+
+/* Immagine visibile (attiva) */
+.club-img.active {
+  opacity: 1;                   /* Completamente visibile */
+  pointer-events: auto;         /* Può essere cliccata o interagita */
+}
+
+
+/*-------------------------------------- ----------------------------*/
+/*-------------------VANTAGGI DEL CLUB ----------------------------*/
+
+/* Contenitore generale della sezione */
+.vantaggi-section {
+  background-color: #000;         /* Sfondo nero elegante */
+  color: #fff;                    /* Testo bianco */
+  padding: 100px 20px;            /* Più spazio sopra e sotto */
+  text-align: center;             /* Centra tutto il testo */
+}
+
+/* Titolo principale della sezione */
+.vantaggi-titolo {
+  font-size: 3.2rem;              /* Titolo grande e leggibile */
+  color: #f4a900;                 /* Giallo oro acceso */
+  margin-bottom: 60px;           /* Spazio sotto il titolo */
+  font-family: 'Playfair Display', serif; /* Font elegante */
+  text-shadow: 0 0 15px #f4a900; /* Bagliore neon attorno al testo */
+}
+
+/* Contenitore flessibile dei riquadri */
+.vantaggi-container {
+  display: flex;                  /* Flexbox per allineamento orizzontale */
+  flex-wrap: wrap;               /* Va a capo su dispositivi piccoli */
+  justify-content: center;       /* Centra i box orizzontalmente */
+  gap: 40px;                     /* Spazio tra i box */
+}
+
+.vantaggi-section p {
+  font-size: 1rem;
+}
+
+
+/* Box singolo giallo del vantaggio */
+.vantaggio-box1 {
+  background-color: rgba(255, 255, 255, 0.05); /* Sfondo trasparente leggero */
+  border: 2px solid #f4a900;                  /* Bordo con colore neon */
+  box-shadow: 0 0 12px #f4a90088;             /* Glow intorno */
+  border-radius: 18px;                        /* Angoli morbidi */
+  width: 320px;                               /* Box più largo */
+  padding: 40px 30px;                         /* Spaziatura interna generosa */
+  transition: transform 0.3s ease,            /* Animazione zoom */
+              box-shadow 0.3s ease;
+}
+
+/* Hover: effetto ingrandimento e glow più intenso */
+.vantaggio-box1:hover {
+  transform: scale(1.07);                     /* Leggero ingrandimento */
+  box-shadow: 0 0 25px #f4a900;               /* Glow forte al passaggio */
+}
+
+
+/* Box singolo rosso del vantaggio */
+.vantaggio-box2 {
+  background-color: rgba(255, 255, 255, 0.05); /* Sfondo trasparente leggero */
+  border: 2px solid #e21515;                  /* Bordo con colore neon */
+  box-shadow: 0 0 12px #f4a90088;             /* Glow intorno */
+  border-radius: 18px;                        /* Angoli morbidi */
+  width: 320px;                               /* Box più largo */
+  padding: 40px 30px;                         /* Spaziatura interna generosa */
+  transition: transform 0.3s ease,            /* Animazione zoom */
+              box-shadow 0.3s ease;
+}
+
+/* Hover: effetto ingrandimento e glow più intenso */
+.vantaggio-box2:hover {
+  transform: scale(1.07);                     /* Leggero ingrandimento */
+  box-shadow: 0 0 25px #e21515;               /* Glow forte al passaggio */
+}
+
+/* Icona del vantaggio */
+.vantaggio-icona1 {
+  font-size: 3.8rem;                          /* Più grande per evidenziare */
+  color: #f4a900;                             /* Colore neon acceso */
+  margin-bottom: 20px;                        /* Spazio sotto l’icona */
+  text-shadow: 0 0 10px #f4a900;              /* Bagliore luminoso */
+}
+
+/* Icona del vantaggio */
+.vantaggio-icona2 {
+  font-size: 3.8rem;                          /* Più grande per evidenziare */
+  color: #d31f1f;                             /* Colore neon acceso */
+  margin-bottom: 20px;                        /* Spazio sotto l’icona */
+  text-shadow: 0 0 10px #e21515;              /* Bagliore luminoso */
+}
+
+/*-------------------------------------- ----------------------------*/
+
+/* =============================== */
+/* 🤝 Sezione Sponsor con animazione riquadro da sinistra */
+/* =============================== */
+/* =============================== */
+/*         SEZIONE SPONSOR        */
+/* =============================== */
+.sponsor-section {
+  background: #8d2121; /* Rosso scuro caldo */
+  padding: 100px 0; /* Spazio sopra e sotto */
+  font-family: 'Montserrat', sans-serif;
+  color: #f0f0f0; /* Colore di base per testo */
+}
+
+/* Contenitore principale bianco con angoli arrotondati */
+.sponsor-box {
+  width: 100%;
+  max-width: 1200px; /* Limita larghezza per leggibilità */
+  margin: 0 auto;
+  padding: 40px;
+  background: #fff; /* Sfondo bianco */
+  border-radius: 16px 16px 16px 16px; /* Solo angoli  arrotondati */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25); /* Ombra per rilievo */
+  box-sizing: border-box;
+
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 0.8s ease-out;
+  transition-delay: 0.2s;
+}
+
+
+/* Quando la box è visibile nella viewport */
+.sponsor-box.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =============================== */
+/*           TITOLO               */
+/* =============================== */
+.sponsor-title {
+  font-size: 3.3rem; /* Dimensione grande ma equilibrata */
+  font-weight: 800;
+  color: #ffc400; /* Oro elegante */
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 6px #494848; /* Leggera ombra  */
+  letter-spacing: 4px; /* Spaziatura lettere */
+  text-transform: uppercase; /* Tutto maiuscolo */
+  text-align: center;
+  font-family: 'Cinzel', serif;
+}
+
+/* =============================== */
+/*        TESTO DESCRITTIVO       */
+/* =============================== */
+.sponsor-text {
+  font-size: 1.5rem;
+  color: #201e1e; /* Grigio scuro per leggibilità */
+  margin: 0 auto 50px;
+  line-height: 1.7;
+  text-align: center; /* Allineamento centrato per impatto visivo */
+  max-width: 700px;
+  font-family: 'Cinzel', serif;
+}
+
+/* =============================== */
+/*      CAROSELLO IMMAGINI        */
+/* =============================== */
+
+/* Contenitore centrale con overflow nascosto */
+.carousel-container {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track che contiene le immagini allineate in fila */
+.carousel-track {
+  display: flex;
+  gap: 40px; /* Spazio tra immagini */
+  width: calc((280px + 40px) * 6); /* Larghezza = immagini + spazi */
+  animation: scrollSponsors 25s linear infinite; /* Animazione continua */
+}
+
+/* Stile base delle immagini sponsor */
+.carousel-track img {
+  width: 260px;
+  border-radius: 8px; /* Angoli leggermente arrotondati */
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4); /* Bagliore dorato */
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Effetto zoom */
+}
+
+/* Effetto zoom al passaggio del mouse */
+.carousel-track img:hover {
+  transform: scale(1.07);
+}
+
+/* Keyframes per far scorrere le immagini da destra a sinistra */
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * ((280px + 40px) * 3))); /* Scorri metà */
+  }
+}
+
+/* =============================== */
+/*          BOTTONE               */
+/* =============================== */
+.sponsor-button {
+  display: block;
+  margin: 0 auto; /* Centra orizzontalmente */
+  background: linear-gradient(135deg, #f9b707, #a61212); /* Gradiente oro-rosso */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px 40px;
+  border-radius: 50px; /* Bottone arrotondato */
+  text-decoration: none;
+  max-width: max-content;
+  box-shadow:
+    0 6px 12px rgba(255, 193, 7, 0.6), /* Ombra esterna dorata */
+    inset 0 -3px 6px rgba(255, 255, 255, 0.2); /* Effetto luce interna */
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.2s ease;
+  position: relative;
+  z-index: 3;
+}
+
+/* Hover: cambia colore e solleva il bottone */
+.sponsor-button:hover {
+  background: linear-gradient(135deg, #ffc107, #c62828);
+  box-shadow:
+    0 10px 24px rgba(255, 193, 7, 0.7),
+    inset 0 -3px 6px #8d2121;
+  transform: translateY(-4px);
+}
+
+/* Focus per tastiera: accessibilità */
+.sponsor-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.8);
+}
+/* =============================== */
+/*             FOOTER              */
+/* =============================== */
+
+.main-footer {
+  background: #8d2121;               /* Sfondo rosso scuro */
+  color: #fff;                       /* Colore del testo (bianco) */
+  padding: 60px 20px;                /* Spazio interno: 60px sopra/sotto, 20px ai lati */
+  font-family: 'Montserrat', sans-serif; /* Font moderno e leggibile */
+}
+
+/* =============================== */
+/*     CONTENITORE PRINCIPALE     */
+/* =============================== */
+
+.footer-content {
+  max-width: 1200px;                 /* Larghezza massima del contenuto */
+  margin: 0 auto;                    /* Centra il contenitore orizzontalmente */
+  display: flex;                     /* Disposizione a colonne orizzontali */
+  flex-wrap: wrap;                   /* Va a capo su dispositivi piccoli */
+  gap: 40px;                         /* Spazio tra le colonne */
+  justify-content: space-between;   /* Spazio distribuito tra colonne */
+  align-items: flex-start;          /* Allineamento verticale in alto */
+}
+
+/* =============================== */
+/*         COLONNA SINISTRA        */
+/* =============================== */
+
+.footer-left {
+  flex: 1 1 300px;                   /* Colonna flessibile, almeno 300px di larghezza */
+}
+
+.footer-social {
+  display: flex;                     /* Disposizione orizzontale tra icona e testo */
+  align-items: center;              /* Allineamento verticale centrato */
+  gap: 12px;                         /* Spazio tra icona e testo */
+  margin-bottom: 16px;              /* Spazio sotto ogni blocco social */
+  color: #fff;                       /* Colore del testo */
+  text-decoration: none;            /* Nessuna sottolineatura */
+  font-weight: 600;                 /* Testo in semi-grassetto */
+  transition: color 0.3s;           /* Transizione colore morbida al passaggio mouse */
+}
+
+.footer-social img {
+  width: 26px;                      /* Larghezza dell’icona */
+  height: 26px;                     /* Altezza dell’icona */
+  transition: transform 0.3s;       /* Transizione per effetto zoom */
+}
+
+.footer-social:hover img {
+  transform: scale(1.15);           /* Zoom dell’icona al passaggio */
+}
+
+.footer-social:hover span {
+  color: #ffc107;                   /* Colore del testo giallo al passaggio mouse */
+}
+
+.footer-info {
+  margin: 10px 0;                   /* Spazio verticale sopra/sotto */
+  font-size: 1.1rem;                /* Dimensione testo leggermente grande */
+  line-height: 1.6;                 /* Altezza linea per migliorare la leggibilità */
+}
+
+.footer-info a {
+  color: #ffc107;                   /* Colore giallo oro per i link */
+  text-decoration: underline;       /* Sottolineatura per evidenziare che è un link */
+}
+
+/* =============================== */
+/*     COLONNA CENTRALE - DEV      */
+/* =============================== */
+
+.footer-center {
+  flex: 1 1 350px;                   /* Larghezza flessibile, minimo 350px */
+  display: flex;                    /* Imposta disposizione verticale */
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08); /* Sfondo bianco trasparente */
+  padding: 20px;                    /* Spaziatura interna */
+  border-radius: 12px;              /* Angoli arrotondati */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombra per profondità */
+  font-size: 12px;                  /* Testo piccolo e minimale */
+  line-height: 1.4;                 /* Spaziatura tra righe */
+}
+
+.footer-center h4 {
+  font-size: 1.3rem;                /* Dimensione del titolo */
+  margin-bottom: 10px;             /* Spazio sotto il titolo */
+  color: #ffc107;                   /* Colore del titolo giallo oro */
+}
+
+.dev-profile {
+  display: flex;                    /* Disposizione orizzontale tra foto e testo */
+  align-items: flex-start;         /* Allineamento in alto */
+  gap: 10px;                        /* Spazio tra foto e contenuto */
+  margin-top: 10px;                /* Spazio sopra */
+}
+
+.dev-photo {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;          /* Colore grigio di base se manca l’immagine */
+  border-radius: 5px;              /* Leggera rotondità */
+  flex-shrink: 0;                  /* Impedisce alla foto di ridursi troppo */
+  background-image: url(fotoWebDeveloper.svg); /* Immagine placeholder */
+  background-size: cover;          /* Riempie completamente il box */
+  background-position: center;     /* Centra l’immagine */
+}
+
+
+.dev-info {
+  flex: 1;                          /* Fa occupare tutto lo spazio rimanente */
+}
+
+.dev-name {
+  font-weight: bold;               /* Nome in grassetto */
+  margin-bottom: 5px;              /* Spazio sotto il nome */
+}
+
+.dev-desc {
+  margin: 2px 0;                   /* Spazio verticale tra paragrafi */
+  color: #c7c7c7;                  /* Grigio chiaro per testi descrittivi */
+  font-size: 0.85Rem;
+}
+
+.dev-slogan {
+  font-style: italic;              /* Corsivo per lo slogan */
+  color: #ffc107;                  /* Colore giallo oro */
+  margin: 8px 0 0 0;               /* Spazio sopra */
+   font-size: 0.85Rem;
+}
+
+.dev-socials {
+  margin-top: 6px;                 /* Spazio sopra le icone social */
+}
+
+.dev-socials a {
+  margin-right: 8px;               /* Spazio orizzontale tra le icone */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.dev-socials img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);            /* Rende le icone grigie */
+  opacity: 0.7;                    /* Le rende semi-trasparenti */
+  transition: opacity 0.2s;        /* Transizione per effetto hover */
+}
+
+.dev-socials img:hover {
+  opacity: 1;                      /* Ritorna visibile al 100% */
+  filter: none;                    /* Rimuove il grigio */
+}
+
+/* =============================== */
+/*         COLONNA DESTRA          */
+/* =============================== */
+
+.footer-right {
+  flex: 1 1 300px;                 /* Colonna flessibile, almeno 300px */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                       /* Spazio tra contenuti nella colonna */
+}
+
+.footer-box {
+  background: rgba(255, 255, 255, 0.1); /* Sfondo bianco trasparente */
+  padding: 20px;                   /* Spazio interno */
+  border-radius: 12px;             /* Angoli arrotondati */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombra per effetto rilievo */
+}
+
+.footer-box h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+
+.footer-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-box iframe {
+  width: 100%;                     /* Mappa occupa tutto il box */
+  aspect-ratio: 2 / 2;             /* Forma quadrata */
+  border: none;                    /* Nessun bordo */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Ombra elegante */
+}
+
+/* =============================== */
+/*        LINK LEGALI POLICY       */
+/* =============================== */
+
+.footer-policy {
+  width: 100%;
+  margin-top: 30px;                /* Spazio sopra */
+  text-align: center;              /* Testo centrato */
+  font-size: 0.9rem;               /* Testo leggermente più piccolo */
+  color: #bbb;                     /* Grigio chiaro */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-policy a {
+  color: #ffc107;                  /* Giallo oro */
+  margin: 0 10px;                  /* Spazio tra i link */
+  text-decoration: none;           /* Nessuna sottolineatura */
+  transition: color 0.3s ease;
+}
+
+.footer-policy a:hover {
+  color: #fff;                     /* Colore bianco al passaggio */
+  text-decoration: underline;
+}
+
+
